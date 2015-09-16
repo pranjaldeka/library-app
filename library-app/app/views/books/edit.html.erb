@@ -1,0 +1,10 @@
+<h1>Edit book details</h1>
+
+<%= form_for @book, url: book_path(@book), method: :patch do |f|%>
+    <%= f.text_field :ISBN, :placeholder => 'ISBN' %>
+    <%= f.text_field :title, :placeholder => 'Title' %>
+    <%= f.text_field :author, :placeholder => 'Author' %>
+    <%= f.text_field :description, :placeholder => 'Description' %>
+    <%= f.text_field :status, :placeholder => 'Status' %>
+    <%= f.submit 'Update Book' %>
+<%end%>

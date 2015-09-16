@@ -3,6 +3,9 @@
 <p><%= @admin.email %></p>
  
 <p><%= link_to "View all users", :users %></p>
+<p><%= link_to "View all books", :books %></p>
+<p><%= link_to "Add book", new_book_path %></p>
+
 
 <p><%= link_to "Edit Profile", edit_admin_path(@admin) %></p>
 <p><%= link_to "Log Out", logout_admin_path, method: :delete %></p>
