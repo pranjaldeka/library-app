@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     	log_in_user user
       redirect_to user
     else
+      flash[:error] = "Invalid email/password. Please try again."
       render 'new_user'
     end
   end
@@ -27,6 +28,7 @@ class SessionsController < ApplicationController
       log_in_admin admin
       redirect_to admin
     else
+      flash[:error] = "Invalid email/password. Please try again."
       render 'new_admin'
     end
   end
