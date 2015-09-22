@@ -14,6 +14,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book
     else
+      flash[:error] = "Could not add book"
       render 'new'
     end
   end
