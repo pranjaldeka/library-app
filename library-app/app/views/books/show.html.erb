@@ -1,7 +1,33 @@
+<%= flash[:error] if flash[:error] %>
 <h1><%= @book.title %></h1>
 <p><%= @book.ISBN %></p>
 <p><%= @book.author %></p>
 <p><%= @book.description %></p>
-<p><%= @book.status %></p>
+<p><%= @book.status %>
+  <% if @book.status == "Checked out" %>
+
+     by <%= @book.checkout_histories.last.user.email %></p>
+  <%end%>
+<p><%= link_to "See Checkout history", checkout_book_path(@book) %><p/>
+
+<%if user_logged_in? %>
+    <% if @book.status == "Available" %>
+        <%= link_to "Checkout", create_checkout_path(@book)%>
+    <% else !(@book.checkout_histories == nil) %>
+        <% if @book.checkout_histories.order("issued_at DESC").first.user == current_user %>
+            <%= link_to "Return Book", update_checkout_path(@book) %>
+        <% end %>
+    <% end %>
+<% elsif admin_logged_in? %>
+    <% if @book.status == "Available" %>
+        <%= form_for :user, url:  create_admin_checkout_path(@book)  do |f|%>
+            <%= f.text_field :email, :placeholder => "Enter library member emailid "%><br/>
+            <%= f.submit "Checkout Book" %>
+        <% end %>
+    <% else !(@book.checkout_histories == nil)%>
+        <%= link_to "Return Book", update_checkout_path(@book) %>
+    <%end%>
+<%end%>
+
 
 <%= link_to "Back" , books_path %>

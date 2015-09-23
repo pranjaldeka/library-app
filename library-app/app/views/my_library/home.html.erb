@@ -1,5 +1,9 @@
-<p><%= link_to "Login As User", login_user_path %></p>
-<p><%= link_to "Login As Admin", login_admin_path %></p>
-<p><%= link_to "Sign up", 'signup' %></p>
+<% if user_logged_in? %>
+    <p><%= link_to "View your profile", current_user %></p>
+<% else %>
+    <p><%= link_to "Login As User", login_user_path %></p>
+    <p><%= link_to "Login As Admin", login_admin_path %></p>
+    <p><%= link_to "Sign up", 'signup' %></p>
+<%end%>
 <p><%= link_to "Search Book", books_path %></p>
 

@@ -1,0 +1,18 @@
+<p><%= @user.first_name %></p>
+<p><%= @user.last_name %></p>
+<p><%= @user.email %></p>
+
+<h2>Checkout history</h2>
+<%if not @user.checkout_histories.nil? %>
+    <% @user.checkout_histories.each do |val| %>
+        <p><%= val.book.ISBN %></p>
+        <p><%= val.book.title %></p>
+        <p><%= val.book.author %></p>
+        <p><%= val.issued_at %></p>
+        <p><%= val.returned_at %></p>
+    <% end %>
+<%else %>
+    <p>Nothing to show!</p>
+<% end %>
+
+<%= link_to "Back" , user_path(@user) %>

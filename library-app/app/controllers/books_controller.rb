@@ -27,6 +27,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to root_url
+    @users = @book.users
   end
 
   def edit

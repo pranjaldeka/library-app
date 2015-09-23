@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   resources :users
   resources :admins
   resources :books
+  get '/checkout/book/:id' => 'checkout_histories#show_book', as: :checkout_book
+  get '/checkout/user/:id' => 'checkout_histories#show_user', as: :checkout_user
+  get '/checkout/create/book/:id' =>  'checkout_histories#create', as: :create_checkout
+  get '/checkout/update/book/:id' =>  'checkout_histories#update', as: :update_checkout
+  post '/checkout/create/book/:id' => 'checkout_histories#create_admin', as: :create_admin_checkout
+
+  #get '/books/:id' => 'books#show', as: :book
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
