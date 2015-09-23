@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 20150922200944) do
 
   add_index "books", ["ISBN"], name: "index_books_on_ISBN", unique: true
 
+  create_table "checkout_histories", force: :cascade do |t|
+    t.datetime "issued_at"
+    t.datetime "returned_at"
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "checkout_histories", ["book_id"], name: "index_checkout_histories_on_book_id"
+  add_index "checkout_histories", ["user_id"], name: "index_checkout_histories_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"

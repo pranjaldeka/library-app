@@ -9,8 +9,9 @@ class SessionsController < ApplicationController
   	user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
     	log_in_user user
-      redirect_to user
+      redirect_to root_url
     else
+      flash[:error] = "Invalid email/password. Please try again."
       render 'new_user'
     end
   end
@@ -27,6 +28,7 @@ class SessionsController < ApplicationController
       log_in_admin admin
       redirect_to admin
     else
+      flash[:error] = "Invalid email/password. Please try again."
       render 'new_admin'
     end
   end

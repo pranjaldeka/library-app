@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 	uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 8 }, allow_nil: true
+
+	has_many :checkout_histories
+	has_many :books, through: :checkout_histories
 end
