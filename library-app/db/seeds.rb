@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 (1..50).each do |x|
-  Book.create!(ISBN: x, title: "Book #{x}", description: "test description", author: "Some Author", status: "Checked out")
+  Book.create!(ISBN: x, title: "Book #{x}", description: "test description", author: "Some Author", status: "Available")
 end

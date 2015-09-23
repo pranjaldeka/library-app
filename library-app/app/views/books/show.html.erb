@@ -6,7 +6,7 @@
 <p><%= @book.status %>
   <% if (@book.status == "Checked out") && (admin_logged_in?) %>
       <%if admin_logged_in? %>
-        by <%= @book.checkout_histories.order("issued_at DESC").first.user.email %></p>
+        by <%= @book.checkout_histories.order("issued_at DESC").first.user.email unless @book.checkout_histories.order("issued_at DESC").first.nil? %></p>
       <%end%>
   <%end%>
   <p><%= link_to "See Checkout history", checkout_book_path(@book) %><p/>
