@@ -3,9 +3,9 @@ class BooksController < ApplicationController
   before_action :logged_in_admin, only: [:new, :create, :edit, :update, :destroy]
   def index
     if params[:search]
-      @books = Book.search(params[:search]).order("created_at DESC")
+      @books = Book.search(params[:search]).order("created_at DESC").page(params[:page]).per(20)
     else
-      @books = Book.all
+      @books = Book.page(params[:page]).per(20)
     end
   end
 

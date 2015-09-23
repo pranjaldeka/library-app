@@ -5,7 +5,10 @@
 
 <h1>Books</h1>
 <table>
-  <tr>
+
+  <% if @books.present? %>
+
+    <tr>
     <th>ISBN</th>
     <th>Title</th>
     <th>Author</th>
@@ -16,8 +19,6 @@
     <th>Delete</th>
 
   </tr>
-
-  <% if @books.present? %>
 
   <% @books.each do |book| %>
       <tr>
@@ -31,7 +32,12 @@
         <td><%= link_to 'Delete', book_path(book), method: :delete, data: { confirm: 'Are you sure you want to delete the book?'} %></td>
       </tr>
   <%end %>
+  </table>
+  <br/>
+  <%= paginate @books %>
+  <%= page_entries_info @books %>
   <% else %>
     <p>There are no books containing the term(s) <%= params[:search] %>.</p>
   <% end %>
-</table>
+
+
