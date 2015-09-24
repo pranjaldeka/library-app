@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150922200944) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
 
   create_table "books", force: :cascade do |t|
-    t.string   "ISBN"
+    t.string   "isbn"
     t.string   "title"
     t.string   "description"
     t.string   "author"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150922200944) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "books", ["ISBN"], name: "index_books_on_ISBN", unique: true
+  add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true
 
   create_table "checkout_histories", force: :cascade do |t|
     t.datetime "issued_at"

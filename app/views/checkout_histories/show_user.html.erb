@@ -5,7 +5,7 @@
 <h2>Checkout history</h2>
 <%if not @user.checkout_histories.first.nil? %>
     <% @user.checkout_histories.order("issued_at DESC").each do |val| %>
-        <p><%= val.book.ISBN %></p>
+        <p><%= val.book.isbn %></p>
         <p><%= val.book.title %></p>
         <p><%= val.book.author %></p>
         <p><%= val.issued_at %></p>
