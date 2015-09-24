@@ -1,9 +1,12 @@
-<% if user_logged_in? %>
-    <p><%= link_to "View your profile", current_user %></p>
-<% else %>
-    <p><%= link_to "Login As User", login_user_path %></p>
-    <p><%= link_to "Login As Admin", login_admin_path %></p>
-    <p><%= link_to "Sign up", 'signup' %></p>
-<%end%>
-<p><%= link_to "Search Book", books_path %></p>
+<%= form_tag(books_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
+    <%= submit_tag "Search", name: nil  %>
+<% end %>
 
+<%if admin_logged_in? %>
+    <p><%= link_to "View all users", :users %></p>
+    <p><%= link_to "View all books", :books %></p>
+    <p><%= link_to "Add book", new_book_path %></p>
+    <p><%= link_to "Add another admin", new_admin_path %></p>
+    <p><%= link_to "View all admins", :admins %></p>
+<%end%>

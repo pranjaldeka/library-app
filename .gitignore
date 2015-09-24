@@ -15,3 +15,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore RubyMine created folder
+.idea/
+
+# Ignore Gemfile
+/Gemfile
+/Gemfile.lock
