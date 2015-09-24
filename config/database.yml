@@ -21,8 +21,8 @@ development:
 test:
   pool: 5
   timeout: 5000
-  adapter: postgresql
-  database: db/test_db
+  adapter: sqlite3
+  database: db/test.sqlite3
 
 production:
   pool: 5
