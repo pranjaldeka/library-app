@@ -5,7 +5,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :author
-      t.string :status
+      t.string :status, :default => "Available"
       t.timestamps null: false
     end
   end

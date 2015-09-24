@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150922200944) do
     t.string   "title"
     t.string   "description"
     t.string   "author"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "status",      default: "Available"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "books", ["isbn"], name: "index_books_on_isbn", unique: true
