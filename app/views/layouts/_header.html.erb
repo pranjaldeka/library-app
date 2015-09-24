@@ -1,0 +1,18 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "Library System", '#', id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_url %></li>
+        <% if !(user_logged_in? || admin_logged_in?) %>
+          <li><%= link_to "Sign up", signup_path %></li>
+          <li><%= link_to "Log in as Admin", login_admin_path %></li>
+          <li><%= link_to "Log in as Member", login_user_path %></li>
+        <% else %>
+            <li><%= link_to "My Account", user_logged_in? ? current_user : current_admin %></li>
+            <li><%= link_to "Log Out", user_logged_in? ? logout_user_path : logout_admin_path , method: :delete %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
