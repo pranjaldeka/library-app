@@ -25,12 +25,16 @@
   <% elsif admin_logged_in? %>
       <% if @book.status == "Available" %>
           <%= form_for :user, url:  create_admin_checkout_path(@book)  do |f|%>
-              <%= f.text_field :email, :placeholder => "Enter library member emailid "%><br/>
+              <%= f.label "Enter library member EmailID: " %>
+              <%= f.text_field :email%><br/>
               <%= f.submit "Checkout Book" %>
           <% end %>
       <% else !(@book.checkout_histories == nil)%>
-          <%= link_to "Return Book", update_checkout_path(@book) %>
+          <%= link_to "Return Book", update_checkout_path(@book) %><br/>
       <%end%>
+      <br/>
+      <%= link_to 'Edit', edit_book_path(@book) %>
+      <%= link_to 'Delete', book_path(@book), method: :delete, data: { confirm: 'Are you sure you want to delete the book?'} %>
   <%end%>
 
 <br/><br/>

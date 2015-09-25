@@ -3,9 +3,9 @@
     <%= submit_tag "Search", name: nil  %>
 <% end %>
 
+<p><%= link_to "View all books", :books %></p>
 <%if admin_logged_in? %>
     <p><%= link_to "View all users", :users %></p>
-    <p><%= link_to "View all books", :books %></p>
     <p><%= link_to "Add book", new_book_path %></p>
     <p><%= link_to "Add another admin", new_admin_path %></p>
     <p><%= link_to "View all admins", :admins %></p>
