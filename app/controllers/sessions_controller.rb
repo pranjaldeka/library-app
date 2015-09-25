@@ -9,9 +9,10 @@ class SessionsController < ApplicationController
   	user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
     	log_in_user user
+      flash[:success] = "Welcome to our Library System!"
       redirect_to root_path
     else
-      flash[:error] = "Invalid email/password. Please try again."
+      flash.now[:error] = "Invalid email/password. Please try again."
       render 'new_user'
     end
   end
@@ -26,9 +27,10 @@ class SessionsController < ApplicationController
     admin = Admin.find_by(email: params[:session][:email].downcase)
     if admin && admin.authenticate(params[:session][:password])
       log_in_admin admin
+      flash[:success] = "Welcome Admin!"
       redirect_to root_path
     else
-      flash[:error] = "Invalid email/password. Please try again."
+      flash.now[:error] = "Invalid email/password. Please try again."
       render 'new_admin'
     end
   end

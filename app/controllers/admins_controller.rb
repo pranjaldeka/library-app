@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(user_params)
     if @admin.save
-      flash[:success] = "Account created successfully"
+      flash[:success] = "Admin account created successfully"
       redirect_to root_path
     else
       render 'new'
@@ -31,6 +31,7 @@ class AdminsController < ApplicationController
   def update
     @admin = Admin.find(params[:id])
     if @admin.update_attributes(user_params)
+      flash[:success] = "Profile updated successfully!"
       redirect_to @admin
     else
       render 'edit'
@@ -39,6 +40,7 @@ class AdminsController < ApplicationController
 
   def destroy
     Admin.find(params[:id]).destroy
+    flash[:success] = "Admin deleted successfully!"
     redirect_to admins_url
   end
 

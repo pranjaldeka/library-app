@@ -20,9 +20,10 @@ class CheckoutHistoriesController < ApplicationController
     @book = Book.find(params[:id])
     if @book.checkout_histories.create(user: current_user,issued_at: Time.now)
       @book.update(status: "Checked out")
+      flash[:success] = "Book successfully checked out."
       redirect_to @book
     else
-      flash[:error] = "Checkout failure!"
+      flash.now[:error] = "Checkout failure!"
       render @book
     end
   end
@@ -40,6 +41,7 @@ class CheckoutHistoriesController < ApplicationController
     end
     if @book.checkout_histories.create(user: @user,issued_at: Time.now)
       @book.update(status: "Checked out")
+      flash[:success] = "Book successfully checked out."
       redirect_to @book
     else
       flash[:error] = "Checkout failure!"
@@ -51,9 +53,10 @@ class CheckoutHistoriesController < ApplicationController
     @book = Book.find(params[:id])
     if @book.checkout_histories.last.update_attributes(returned_at: Time.now)
       @book.update(status: "Available")
+      flash[:success] = "Book returned successfully."
       redirect_to @book
     else
-      flash[:error] = "Return failure!"
+      flash.now[:error] = "Return failure!"
       render @book
     end
   end
