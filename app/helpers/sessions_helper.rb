@@ -20,13 +20,16 @@ module SessionsHelper
 
   def logged_in_user
     unless user_logged_in?
+      flash[:error] = "You must be logged in to perform this action. Please log in and try again"
       redirect_to login_user_url
     end
   end
 
   def right_user
     @user = User.find(params[:id])
-    redirect_to(root_url) unless @user == current_user
+    unless @user == current_user
+      redirect_to(root_url)
+    end
   end
 
   #Admin specific methods
@@ -50,7 +53,8 @@ module SessionsHelper
 
   def logged_in_admin
     unless admin_logged_in?
-     redirect_to login_admin_url
+      flash[:error] = "You must be logged in as an admin to perform this action. Please log in and try again"
+      redirect_to login_admin_url
    end
  end
 
