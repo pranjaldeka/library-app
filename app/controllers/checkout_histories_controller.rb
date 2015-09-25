@@ -1,19 +1,20 @@
 class CheckoutHistoriesController < ApplicationController
 
   def show_book
-    @book = Book.find(params[:id])
-  #rescue ActiveRecord::RecordNotFound
-    #redirect_to root_url
-    #@users = @book.users
-    #render 'show_user'
+    if admin_logged_in?
+      @book = Book.find(params[:id])
+    else
+      flash[:error] = "Access restriction. Redirected to home page"
+      redirect_to root_url
+    end
   end
 
   def show_user
     @user = User.find(params[:id])
-  #rescue ActiveRecord::RecordNotFound
-  #  redirect_to root_url
-  #  @book = @user.books
-  #  render 'show_book'
+    unless @user == current_user || admin_logged_in?
+      flash[:error] = "Access restriction. Redirected to home page"
+      redirect_to root_url
+    end
   end
 
   def create
