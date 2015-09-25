@@ -14,7 +14,11 @@
       </tr>
       <% @recommended_books.each do |recommended_book| %>
           <tr>
-            <td><%= recommended_book.isbn %></td>
+            <% if Book.find_by(isbn: recommended_book.isbn).nil? %>
+                <td><%= recommended_book.isbn %></td>
+            <% else %>
+                <td><%= link_to recommended_book.isbn, book_path(Book.find_by(isbn: recommended_book.isbn)) %></td>
+            <%end %>
             <td><%= recommended_book.title %></td>
             <td><%= recommended_book.author %></td>
             <td><%= recommended_book.description %></td>
