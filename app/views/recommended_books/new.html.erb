@@ -1,0 +1,9 @@
+<h1>Recommend new book</h1>
+
+<%= form_for @recommended_book, url: recommended_books_path do |f|%>
+    <%= f.text_field :isbn, :placeholder => 'ISBN' %>
+    <%= f.text_field :title, :placeholder => 'Title' %>
+    <%= f.text_field :author, :placeholder => 'Author' %>
+    <%= f.text_field :description, :placeholder => 'Description' %>
+    <%= f.submit 'Submit Recommendation' %>
+<%end%>

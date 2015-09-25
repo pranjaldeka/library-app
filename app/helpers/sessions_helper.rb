@@ -18,6 +18,17 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def logged_in_user
+    unless user_logged_in?
+      redirect_to login_user_url
+    end
+  end
+
+  def right_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
+  end
+
   #Admin specific methods
   def log_in_admin(admin)
     session[:admin_id] = admin.id
@@ -39,12 +50,12 @@ module SessionsHelper
 
   def logged_in_admin
     unless admin_logged_in?
-       redirect_to login_admin_url
-    end
-  end
+     redirect_to login_admin_url
+   end
+ end
 
-  def right_admin
-    @admin = Admin.find(params[:id])
-    redirect_to(root_url) unless @admin == current_admin
-  end
+ def right_admin
+  @admin = Admin.find(params[:id])
+  redirect_to(root_url) unless @admin == current_admin
+end
 end

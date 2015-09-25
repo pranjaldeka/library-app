@@ -54,15 +54,4 @@ class UsersController < ApplicationController
     	params.require(:user).permit(:first_name, :last_name, :email,
     	 :password, :password_confirmation)
     end
-
-    def logged_in_user
-        unless user_logged_in?
-            redirect_to login_user_url
-        end
-    end
-
-    def right_user
-        @user = User.find(params[:id])
-        redirect_to(root_url) unless @user == current_user
-    end
 end

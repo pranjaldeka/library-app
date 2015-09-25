@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
 
 	has_many :checkout_histories
 	has_many :books, through: :checkout_histories
+	has_many :recommended_books
 end

@@ -1,0 +1,30 @@
+
+
+<h1>My recommendations</h1>
+
+
+<% if @recommended_books.present? %>
+    <table>
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+      <% @recommended_books.each do |recommended_book| %>
+          <tr>
+            <td><%= recommended_book.isbn %></td>
+            <td><%= recommended_book.title %></td>
+            <td><%= recommended_book.author %></td>
+            <td><%= recommended_book.description %></td>
+            <td><%= recommended_book.status %></td>
+          </tr>
+      <%end%>
+    </table>
+
+    <br/>
+    <%= paginate @recommended_books %>
+    <%= page_entries_info @recommended_books %>
+<% end %>
+
