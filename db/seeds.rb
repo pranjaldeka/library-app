@@ -16,4 +16,4 @@ Admin.create!(first_name: "Jigesh", last_name: "Mehta", password: "12345678", pa
 
 Admin.create!(first_name: "Shrenuj", last_name: "Gandhi", password: "12345678", password_confirmation: "12345678", email: "sgandhi4@ncsu.edu")
 
-User.create!(first_name: "James", last_name: "Bond", password: "12345678", password_confirmation: "12345678", email: "jbond@ncsu.edu")
+User.create!(first_name: "Harry", last_name: "Potter", password: "12345678", password_confirmation: "12345678", email: "hpotter@example.com")
