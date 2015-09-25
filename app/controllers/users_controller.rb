@@ -9,12 +9,17 @@ class UsersController < ApplicationController
     
     def create
     	@user = User.new(user_params)
-    	if @user.save
-        flash[:success] = "Account created successfully."
-    		redirect_to @user
-    	else 
-    		render 'new'
-    	end
+      if User.find_by(email: params[:user][:email])
+        flash.now[:error] = "User already exists."
+        render 'new'
+      else
+    	  if @user.save
+          flash[:success] = "Account created successfully. Please enter your details below to login."
+    		  redirect_to @user
+    	  else
+    		  render 'new'
+        end
+      end
     end
 
     def show
