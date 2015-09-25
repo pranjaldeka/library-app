@@ -3,7 +3,7 @@
 <%= form_for @book, url: book_path(@book), method: :patch do |f|%>
     <%= f.text_field :isbn, :placeholder => 'ISBN' %>
     <%= f.text_field :title, :placeholder => 'Title' %>
-    <%= f.text_field :author, :placeholder => 'Author' %>
+    <%= f.text_field :author, :placeholder => 'Authors' %>
     <%= f.text_field :description, :placeholder => 'Description' %>
     <%= f.submit 'Update Book' %>
 <%end%>
