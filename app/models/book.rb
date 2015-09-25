@@ -3,8 +3,8 @@ class Book < ActiveRecord::Base
 	validates :isbn, presence: true, uniqueness: true
 	validates :title, presence: true
 	validates :author, presence: true
-  has_many :checkout_histories
-  has_many :users, through: :checkout_histories
+  has_many :checkout_histories, dependent: :destroy
+  has_many :users, through: :checkout_histories, dependent: :destroy
 
   def self.search(search)
      search = search.downcase

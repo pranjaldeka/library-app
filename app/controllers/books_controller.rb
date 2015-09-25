@@ -49,9 +49,14 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    flash[:success] = "Book deleted successfully!"
-    redirect_to books_path
+    if @book.status == "Checked out"
+      flash[:error] = "Book is checked out. Cannot be deleted!"
+      redirect_to books_path
+    else
+      @book.destroy
+      flash[:success] = "Book deleted successfully!"
+      redirect_to books_path
+    end
   end
 
   private

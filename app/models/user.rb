@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6, maximum: 25 }, allow_nil: true
 
-	has_many :checkout_histories
-	has_many :books, through: :checkout_histories
-	has_many :recommended_books
+	has_many :checkout_histories, dependent: :destroy
+	has_many :books, through: :checkout_histories, dependent: :destroy
+	has_many :recommended_books, dependent: :destroy
 end

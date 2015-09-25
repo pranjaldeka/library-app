@@ -46,8 +46,15 @@
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    redirect_to users_url
+    @user = User.find(params[:id])
+    if @user.checkout_histories.any? {|val| val.book.status == "Checked out" }
+      flash[:error] = "User has checked out books. Cannot be deleted."
+      redirect_to users_path
+    else
+      flash[:success] = "User deleted successfully."
+      @user.destroy
+      redirect_to users_url
+    end
   end
 
   private
