@@ -1,3 +1,12 @@
+
+<h2>Library Users</h2>
+<% if @users.present? %>
+    <table border="4" >
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
 <% @users.each do |user| %>
     <tr>
       <td><%= user.first_name %></td>
@@ -7,7 +16,11 @@
       <br/>
     </tr>
 <% end %>
+ </table>
 <br/>
 <%= paginate @users %>
 <%= page_entries_info @users %>
 <br/><br/>
+<% else %>
+    <p>There are currently no users in the library %></p>
+<% end %>

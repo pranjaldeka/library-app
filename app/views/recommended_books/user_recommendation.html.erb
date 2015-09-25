@@ -12,7 +12,7 @@
         <th>Description</th>
         <th>Status</th>
       </tr>
-      <% @recommended_books.each do |recommended_book| %>
+      <% @recommended_books.order("updated_at DESC").each do |recommended_book| %>
           <tr>
             <% if Book.find_by(isbn: recommended_book.isbn).nil? %>
                 <td><%= recommended_book.isbn %></td>
@@ -30,5 +30,9 @@
     <br/>
     <%= paginate @recommended_books %>
     <%= page_entries_info @recommended_books %>
+
+<br/><br/>
+<% else %>
+    <p>You have not recommended any books yet </p>
 <% end %>
 

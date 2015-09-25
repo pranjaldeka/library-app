@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
   before_action :right_admin,   only: [:edit, :update]
 
   def index
-    @admins = Admin.all
+    @admins = Admin.page(params[:page]).per(20)
   end
 
   def new

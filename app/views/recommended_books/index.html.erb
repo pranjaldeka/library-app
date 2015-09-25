@@ -3,8 +3,9 @@
 <h1>Recommended Books</h1>
 
 
+<h2>Recommended Books</h2>
 <% if @recommended_books.present? %>
-    <table>
+    <table border="4" >
       <tr>
         <th>ISBN</th>
         <th>Title</th>
@@ -12,7 +13,7 @@
         <th>Description</th>
         <th>Status</th>
       </tr>
-      <% @recommended_books.each do |recommended_book| %>
+      <% @recommended_books.order("updated_at DESC").each do |recommended_book| %>
           <tr>
             <% if Book.find_by(isbn: recommended_book.isbn).nil? %>
                 <td><%= recommended_book.isbn %></td>
