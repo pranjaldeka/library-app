@@ -6,10 +6,14 @@
 <%if not @user.checkout_histories.first.nil? %>
     <% @user.checkout_histories.order("issued_at DESC").each do |val| %>
         <p><%= val.book.isbn %></p>
-        <p><%= val.book.title %></p>
+        <p><%= link_to val.book.title, val.book %></p>
         <p><%= val.book.author %></p>
         <p><%= val.issued_at %></p>
-        <p><%= val.returned_at %></p>
+        <% if val.returned_at.nil? %>
+            <%= link_to "Return Book", update_checkout_path(val.book) %>
+        <% else %>
+            <p><%= val.returned_at %></p>
+        <%end%>
     <% end %>
 <%else %>
     <p>Nothing to show!</p>
