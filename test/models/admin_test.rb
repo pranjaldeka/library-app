@@ -19,30 +19,25 @@ class AdminTest < ActiveSupport::TestCase
   # GROUP 2 - Presence of all the fields
 
   test "first name should be present" do
-    @admin.first_name = nil
+    @admin.first_name = ''
     assert_not @admin.valid?
   end
 
   test "last name should be present" do
-    @admin.last_name = nil
+    @admin.last_name = ''
     assert_not @admin.valid?
   end
 
   test "email address should be present" do
-    @admin.email = nil
+    @admin.email = ''
     assert_not @admin.valid?
   end
 
   test "password field should be present" do
-    @admin.password = nil
-    assert_not @admin.valid?
-  end
-
-  test "confirm password field should be present" do
+    @admin.password = ''
     @admin.password_confirmation = ''
     assert_not @admin.valid?
   end
-
 
   # GROUP 3 : Fields are alpha-numeric
 
@@ -68,7 +63,8 @@ class AdminTest < ActiveSupport::TestCase
   end
 
   test "password should not be greater than 25 characters" do
-    @admin.last_name = 'a' * 26
+    @admin.password = 'a' * 26
+    @admin.password_confirmation = 'a' * 26
     assert_not @admin.valid?
   end
 
@@ -82,6 +78,7 @@ class AdminTest < ActiveSupport::TestCase
 
   test "password should not be less than 8 characters" do
     @admin.password = 'xyz123'
+    @admin.password_confirmation = 'xyz123'
     assert_not @admin.valid?
   end
 
@@ -117,7 +114,7 @@ class AdminTest < ActiveSupport::TestCase
 
   test "password can contain whitespaces" do
     @admin.password = "xyz 123 abc"
-    Rails.logger.info "*************#{@admin.password}"
+    @admin.password_confirmation = 'xyz 123 abc'
     assert @admin.valid?
   end
 
@@ -142,4 +139,3 @@ class AdminTest < ActiveSupport::TestCase
   end
 
 end
-
