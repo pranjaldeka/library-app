@@ -20,7 +20,7 @@
           <th>Delete</th>
         <% end %>
       </tr>
-      <% @books.each do |book| %>
+      <% @books.order("created_at DESC").each do |book| %>
           <tr>
             <td><%= book.isbn %></td>
             <td><%= link_to book.title, book_path(book) %></td>

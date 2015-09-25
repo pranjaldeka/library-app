@@ -1,11 +1,18 @@
+<% if @users.count != 0 %>
+<table>
 <% @users.each do |user| %>
     <tr>
       <td><%= user.first_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.email %></td>
+      <td><%= link_to "View User Checkout history",checkout_user_path(user) %></td>
       <td><%= link_to 'Delete User', user, method: :delete, data: { confirm: "Are you sure you want to delete the user?" } %></td>
       <br/>
     </tr>
+<% end %>
+</table>
+<% else %>
+    <p>No users registered yet!</p>
 <% end %>
 <br/>
 <%= paginate @users %>
