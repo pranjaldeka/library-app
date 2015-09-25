@@ -1,3 +1,4 @@
+
 <h1><%= @book.title %></h1>
 <p><%= "ISBN : " + @book.isbn %></p>
 <p><%= "Author : " + @book.author %></p>
@@ -6,13 +7,24 @@
 
 <h2>Checkout history</h2>
 <%if not @book.checkout_histories.first.nil? %>
+   <table border="4" >
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Issued at</th>
+        <th>Returned at</th>
+      </tr>
     <% @book.checkout_histories.order("issued_at DESC").each do |val| %>
-        <p><%= val.user.first_name%> <%=val.user.last_name%></p>
-        <p><%= val.user.email %></p>
-        <p><%= val.issued_at %></p>
-        <p><%= val.returned_at %></p>
+    <tr>
+        <td><%= val.user.first_name + " " + val.user.last_name %></td>
+        <td><%= val.user.email %></td>
+        <td><%= val.issued_at %></td>
+        <td><%= val.returned_at %></td>
+    </tr>
     <% end %>
+  </table>
 <% else %>
     <p>Nothing to show!</p>
 <% end %>
+<br/>
 <%= link_to "Back", @book %>

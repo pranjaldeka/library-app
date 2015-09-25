@@ -3,18 +3,31 @@
 <p><%= @user.email %></p>
 
 <h2>Checkout history</h2>
+
 <%if not @user.checkout_histories.first.nil? %>
+
+   <table border="4" >
+      <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Issued at</th>
+        <th>Returned at</th>
+      </tr>
     <% @user.checkout_histories.order("issued_at DESC").each do |val| %>
-        <p><%= val.book.isbn %></p>
-        <p><%= link_to val.book.title, val.book %></p>
-        <p><%= val.book.author %></p>
-        <p><%= val.issued_at %></p>
+    <tr>
+        <td><%= link_to val.book.isbn, val.book %></td>
+        <td><%= val.book.title %></td>
+        <td><%= val.book.author %></td>
+        <td><%= val.issued_at %></td>
         <% if val.returned_at.nil? %>
-            <%= link_to "Return Book", update_checkout_path(val.book) %>
+            <td><%= link_to "Return Book", update_checkout_path(val.book) %></td>
         <% else %>
-            <p><%= val.returned_at %></p>
+            <td><%= val.returned_at %></td>
         <%end%>
+    </tr>
     <% end %>
+    </table>
 <%else %>
     <p>Nothing to show!</p>
 <% end %>
