@@ -168,8 +168,11 @@ Tested admin model and admins controller
 *** Use cases for different scenarios ***
 
 a) When a user is deleted, the checkout history of the user is also deleted
+
 b) When a book is deleted, the checkout history of the book is also deleted
+
 c) When an admin tries to delete a checked out book, it is not permitted by the system
+
 d) When an admin tries to delete a user who are currently holding any book, it is not permitted by the system 
 
 
