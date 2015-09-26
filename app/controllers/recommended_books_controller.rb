@@ -12,6 +12,7 @@ class RecommendedBooksController < ApplicationController
 
 	def create
 		if current_user.recommended_books.create(recommended_book_params)
+			flash[:success] = "Successfully recommended a book to library"
 			redirect_to current_user
 		else 
 			flash.now[:error] = "Error occured while adding book to recommendation"
