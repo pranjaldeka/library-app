@@ -13,7 +13,7 @@
       <td><%= admin.first_name %></td>
       <td><%= admin.last_name %></td>
       <td><%= admin.email %></td>
-      <% if !(admin.email == "jigesh.1992@gmail.com") && !(admin == current_admin) %>
+      <% if !(admin.email == "admin@ncsu.edu") && !(admin == current_admin) %>
         <td><%= link_to 'Delete Admin', admin, method: :delete, data: { confirm: "Are you sure you want to delete the admin?" } %></td>
         <% else %>
         <td><td/>

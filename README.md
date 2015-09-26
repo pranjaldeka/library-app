@@ -2,7 +2,7 @@
 
 ### Deployment
 
-Deployed the application to Heroku
+Deployed the application on Heroku
 
 https://rails-library-app.herokuapp.com/  
 
@@ -11,7 +11,7 @@ This is the default home page of our application
 
 ### Preconfigured admin details:
 
-        Email    : jigesh.1992@gmail.com
+        Email    : admin@ncsu.edu
         Password : 12345678
 
 ### Features currently supported

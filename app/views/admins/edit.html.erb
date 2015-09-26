@@ -5,12 +5,13 @@
 
       <p><%= f.label :last_name %>
       <%= f.text_field :last_name %></p>
+      <% if !(current_admin.email == "admin@ncsu.edu") %>
+        <p><%= f.label :password %>
+        <%= f.password_field :password %></p>
 
-      <p><%= f.label :password %>
-      <%= f.password_field :password %></p>
-
-      <p><%= f.label :re_enter_password %>
-      <%= f.password_field :password_confirmation %></p>
+        <p><%= f.label :re_enter_password %>
+        <%= f.password_field :password_confirmation %></p>
+      <% end %>
 
    <p><%= f.submit "Update" %></p>
 <% end %>
