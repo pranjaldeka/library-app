@@ -1,6 +1,6 @@
 # rails-library-app
 
-*** Deployment ***
+### Deployment
 
 Deployed the application to Heroku
 
@@ -8,40 +8,41 @@ https://rails-library-app.herokuapp.com/
 
 This is the default home page of our application
 
-*** Features currently supported ***
 
-==Admins==
-
-1) Login with an email and password
-
-   On home page, Click "Log in as Admin" to login to library system as admin.
-
-   Preconfgured admin details:
+### Preconfigured admin details:
 
         Email    : jigesh.1992@gmail.com
         Password : 12345678
 
-!!!!!! In order to perform the following tasks (2, 3, 4 , 5) , the admin needs to be logged in !!!!!!
+### Features currently supported
 
-2) Edit his/her profile details
+####Admins
 
-   Click on "My Account" --> "Edit Profile" to edit profile details.
+**1) Login with an email and password**
 
-3) Manage admins 
+       On home page, Click "Log in as Admin" to login to library system as admin.
 
-   a) Create new admins
+In order to perform the following tasks (2, 3, 4 , 5) , the admin needs to be **logged in**
 
-       From the home page, Click on "Add another admin" link. Enter details and Click "Register"
+**2) Edit his/her profile details**
+
+       Click on "My Account" --> "Edit Profile" to edit profile details.
+
+**3) Manage admins**
+
+  a) Create new admins
+
+        From the home page, Click on "Add another admin" link. Enter details and Click "Register"
       
-   b) View list of admins and their profile details (Except password)
+  b) View list of admins and their profile details (Except password)
 
        From the home page, Click on "View all admins" link.
 
-   c) Delete admins (except her/him-self and the preconfigured admin)
+  c) Delete admins (except her/him-self and the preconfigured admin)
 
        From the home page, Click on "View all admins" link. Then Click on "Delete Admin" link
 
-4) Manage books
+**4) Manage books**
 
    a) Add a book to the system
 
@@ -80,7 +81,7 @@ This is the default home page of our application
        Search for any book, and click on "Delete" link next to it.
 
 
-5) Manage Library Members
+**5) Manage Library Members**
 
    a) View list of library members and their profile(except password)
 
@@ -95,35 +96,35 @@ This is the default home page of our application
        From home page, Click on "View all users" link , and then click on "Delete User" of the user.
 
 
-==Library Members==
+####Library Members
 
-6) Sign up to become a library member
+**6) Sign up to become a library member**
 
     From home page, Click on "Sign up" link. Enter your details and Click "Register" button
 
-7) Login with email and password
+**7) Login with email and password**
 
     From the home page, Click on "Log in as Member". Enter details and Click "Log In"
 
-!!!!!! In order to perform the tasks 8, 11, 12, 13, 14 and 15 below , the user needs to be logged in !!!!!!
+In order to perform the tasks 8, 11, 12, 13, 14 and 15 below , the user needs to be **logged in**
 
-8) Edit his/her profile
+**8) Edit his/her profile**
 
     Click on "My Account"-->"Edit Profile". Edit the details and Click on "Update"
 
-9) Search books using ISBN, title, authors, description, status
+**9) Search books using ISBN, title, authors, description, status**
 
     From the home page, enter ISBN or title or author or description or status to search for any book.
 
-10) View details of a book
+**10) View details of a book**
 
     Search for a book. From the search results, click on "ISBN" hyperlink in order to get the details of the book. 
 
-11) Checkout a book if its status is 'Available'
+**11) Checkout a book if its status is 'Available'**
 
     Search for a book. From the search results, click on "ISBN" hyperlink and Click on "Checkout"
 
-12) Return a checked out book
+**12) Return a checked out book**
 
     Search for a book. From the search results, click on "ISBN" hyperlink and Click on "Return Book"
 
@@ -131,41 +132,41 @@ This is the default home page of our application
 
     Click on "My Account"-->"See Checkout history"-->"Return Book"
 
-13) View own checkout history
+**13) View own checkout history**
 
     Click on "My Account"-->"See Checkout history"
 
 
 
-*** Extra credit Features Implemented ***
+### Extra credit Features Implemented 
 
 
-14) User can recommend books to library. 
+**14) User can recommend books to library**
 
     Click on "My Account"-->"Recommend a Book". Enter details and Click on "Submit Recommendation".
 
-15) User can view his/her recommendations and their corresponding status.
+**15) User can view his/her recommendations and their corresponding status**
 
     Click on "My Account"-->"See My Recommendations"
 
-!!!!!! In order to perform the tasks 16 and 17 below , the Admin needs to be logged in !!!!!!
+In order to perform the tasks 16 and 17 below , the Admin needs to be **logged in**
 
-16) Admin can accept or decline the recommended book. 
+**16) Admin can accept or decline the recommended book** 
 
     From home page, Click on "View all book recommendations". Click on "Accept" to accept and "Decline" to decline the recommendation.
 
-17) Admin can edit book details during the approval process
+**17) Admin can edit book details during the approval process**
 
     From home page, Click on "View all book recommendations"-->"Accept". Edit the details and Click "Add Book"
     (The approved book is now available for library members)
 
 
-*** Testing ***
+### Testing
 
 Tested admin model and admins controller
 
 
-*** Use cases for different scenarios ***
+### Use cases for different scenarios
 
 a) When a user is deleted, the checkout history of the user is also deleted
 
@@ -173,7 +174,7 @@ b) When a book is deleted, the checkout history of the book is also deleted
 
 c) When an admin tries to delete a checked out book, it is not permitted by the system
 
-d) When an admin tries to delete a user who is currently holding any book, it is not permitted by the system 
+d) When an admin tries to delete a user who is currently holding any book, it is not permitted by the system
 
 
 
