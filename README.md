@@ -173,7 +173,7 @@ b) When a book is deleted, the checkout history of the book is also deleted
 
 c) When an admin tries to delete a checked out book, it is not permitted by the system
 
-d) When an admin tries to delete a user who are currently holding any book, it is not permitted by the system 
+d) When an admin tries to delete a user who is currently holding any book, it is not permitted by the system 
 
 
 

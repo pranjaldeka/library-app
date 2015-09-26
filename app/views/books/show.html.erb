@@ -35,7 +35,7 @@
           <%= link_to "Return Book", update_checkout_path(@book) %><br/>
       <%end%>
       <br/>
-      <%= link_to 'Edit', edit_book_path(@book) %>
+      <%= link_to 'Edit', edit_book_path(@book) %>&nbsp;&nbsp
       <%= link_to 'Delete', book_path(@book), method: :delete, data: { confirm: 'Are you sure you want to delete the book?'} %>
   <%end%>
 

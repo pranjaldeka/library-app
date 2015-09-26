@@ -1,8 +1,8 @@
 <%= form_tag(books_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Books", :size => "30" %>
     <%= submit_tag "Search", name: nil  %>
 <% end %>
-
+<br/>
 <p><%= link_to "Back", root_path %></p>
 
 <h2>Books</h2>
@@ -35,7 +35,6 @@
       <%end%>
     </table>
 
-    <br/>
     <%= paginate @books %>
     <%= page_entries_info @books %>
 <% else %>

@@ -18,7 +18,7 @@
          flash[:success] = "Account created successfully."
          redirect_to @user
        else
-         flash[:error] = @user.errors.full_messages.to_sentence
+         flash.now[:error] = @user.errors.full_messages.to_sentence
          render 'new'
        end
      end

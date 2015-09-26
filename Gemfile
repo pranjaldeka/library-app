@@ -11,6 +11,8 @@ group :development do
 	gem 'sqlite3'
 end
 
+gem 'bootstrap-sass',  '3.2.0.0'
+
 #use postgres as the database
 #gem 'pg'
 # Use SCSS for stylesheets
