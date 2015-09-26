@@ -12,11 +12,17 @@ class AdminsController < ApplicationController
 
   def create
     @admin = Admin.new(user_params)
-    if @admin.save
-      flash[:success] = "Admin account created successfully"
-      redirect_to root_path
-    else
+    if Admin.find_by(email: params[:admin][:email])
+      flash.now[:error] = "Admin already exists."
       render 'new'
+    else
+      if @admin.save
+        flash[:success] = "Admin account created successfully"
+        redirect_to root_path
+      else
+        flash.now[:error] = @admin.errors.full_messages.to_sentence
+        render 'new'
+      end
     end
   end
 
