@@ -39,6 +39,7 @@ class RecommendedBooksController < ApplicationController
 				flash.now[:success] = "Successfully added book to library"
 			    redirect_to recommended_books_path
 			 else
+			 	flash.now[:error] = book.errors.full_messages.to_sentence
 			 	render 'edit'
 			 end
 		else

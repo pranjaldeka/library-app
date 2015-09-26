@@ -20,7 +20,7 @@ class BooksController < ApplicationController
       flash[:success] = "Book added successfully!"
       redirect_to @book
     else
-      flash.now[:error] = "Could not add book."
+      flash.now[:error] = @book.errors.full_messages.to_sentence
       render 'new'
     end
   end
