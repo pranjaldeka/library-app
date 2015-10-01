@@ -41,8 +41,8 @@
                <% if book.status == "Available" %>
                    <td><%= link_to 'Checkout', create_checkout_path(book) %></td>
                <%end%>
-               <% if (book.status == "Checked out") %> 
-                   <% if (!current_user.books.find_by_id(book.id).nil?) %>
+               <% if (book.status == "Checked out") %>
+                    <% if current_user == book.checkout_histories.last.user %>
                        <td><%= link_to 'Return Book', update_checkout_path(book), data: { confirm: 'Are you sure you want to return the book?'} %></td>
                    <%else%>
                        <td></td>
