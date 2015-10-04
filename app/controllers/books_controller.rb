@@ -42,7 +42,7 @@ class BooksController < ApplicationController
       flash[:success] = "Book updated successfully!"
       redirect_to @book
     else
-      flash.now[:error] = "Could not edit book."
+      flash.now[:error] = @book.errors.full_messages.to_sentence
       render 'edit'
     end
   end
