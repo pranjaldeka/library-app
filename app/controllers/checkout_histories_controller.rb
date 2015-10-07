@@ -55,6 +55,11 @@ class CheckoutHistoriesController < ApplicationController
     if @book.checkout_histories.last.update_attributes(returned_at: Time.now)
       @book.update(status: "Available")
       flash[:success] = "Book returned successfully."
+      send_emails = @book.email_notifications.select {|e| e.sent == false}
+      send_emails.each do |entry|
+        UserMailer.send_email(entry.user,entry.book).deliver_now
+        entry.update_attributes(sent: true)
+      end
       redirect_to @book
     else
       flash.now[:error] = "Return failure!"

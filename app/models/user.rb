@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
 	has_many :checkout_histories, dependent: :destroy
 	has_many :books, through: :checkout_histories, dependent: :destroy
 	has_many :recommended_books, dependent: :destroy
+	has_many :email_notifications, dependent: :destroy
 end
