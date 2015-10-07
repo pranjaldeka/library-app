@@ -59,6 +59,18 @@ class BooksController < ApplicationController
     end
   end
 
+  def get_notification
+    @book = Book.find(params[:id])
+    email_notification = current_user.email_notifications.new(book: @book)
+    if email_notification.save
+      flash[:success] = "Successfully subscribed to notification."
+      redirect_to books_path
+    else
+      flash[:error] = email_notification.errors.full_messages.to_sentence
+      redirect_to books_path
+    end
+  end
+
   private
   def book_params
     params.require(:book).permit(:isbn, :title, :description, :author, :status)

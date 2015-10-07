@@ -5,6 +5,7 @@ class Book < ActiveRecord::Base
 	validates :author, presence: true
   has_many :checkout_histories, dependent: :destroy
   has_many :users, through: :checkout_histories, dependent: :destroy
+  has_many :email_notifications, dependent: :destroy
 
   def self.search(search)
      search = search.downcase

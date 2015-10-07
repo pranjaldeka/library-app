@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/checkout/update/book/:id' =>  'checkout_histories#update', as: :update_checkout
   post '/checkout/create/book/:id' => 'checkout_histories#create_admin', as: :create_admin_checkout
   get '/rec_book' => 'recommended_books#user_recommendation', as: :rec_book
+  get '/email_notification/book/:id' => 'books#get_notification', as: :email_notification
 
   #get '/books/:id' => 'books#show', as: :book
   # The priority is based upon order of creation: first created -> highest priority.
