@@ -14,6 +14,8 @@ This is the default home page of our application
         Email    : admin@ncsu.edu
         Password : 12345678
 
+**Note:** The password of preconfigured admin cannot be changed. However passwords of other admins can be changed from "Edit Profile"
+
 ### Features currently supported
 
 ####Admins
