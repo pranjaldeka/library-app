@@ -122,6 +122,10 @@ In order to perform the tasks 8, 11, 12, 13, 14 and 15 below , the user needs to
 
 **11) Checkout a book if its status is 'Available'**
 
+    Search for a book. From the search results, click on "Checkout" hyperlink of the desired book
+
+    or
+
     Search for a book. From the search results, click on "ISBN" hyperlink and Click on "Checkout"
 
 **12) Return a checked out book**
@@ -140,6 +144,7 @@ In order to perform the tasks 8, 11, 12, 13, 14 and 15 below , the user needs to
 
 ### Extra credit Features Implemented 
 
+#### Book Recommendation
 
 **14) User can recommend books to library**
 
@@ -159,6 +164,18 @@ In order to perform the tasks 16 and 17 below , the Admin needs to be **logged i
 
     From home page, Click on "View all book recommendations"-->"Accept". Edit the details and Click "Add Book"
     (The approved book is now available for library members)
+
+#### Email Notification
+
+**18) User can register to receive a notification email**
+
+     Search for a checked out book and Click on "Get Email Notification" link from the search results.
+
+     or
+
+     Search for a checked out book. From the search result, Click on "ISBN" hyperlink --> "Get Email Notification" to receive a notification email when the book becomes available
+
+  **Note** : The book must be checked out by other user, in order to subscribe for email
 
 
 ### Testing
