@@ -184,6 +184,11 @@ In order to perform the tasks 16 and 17 below , the Admin needs to be **logged i
 
 Tested admin model and admins controller
 
+Command to run model test
+        ..\library-app-rails> bundle exec rake test:models
+        
+Command to run controller test
+        ..\library-app-rails> bundle exec rake test:controllers
 
 ### Use cases for different scenarios
 
